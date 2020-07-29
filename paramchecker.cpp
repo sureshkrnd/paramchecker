@@ -1,28 +1,19 @@
-bool vital_bpm( float bpm ){
-  if( ( bpm<70 ) || (bpm >150) ){
-    return false;
-  }
-  return true;
-}
+#include "paramchecker.h"
+#include <vector>
+#include <iostream>
 
-bool vital_spo2( float spo2 ){
-  if( spo2<80 ){
-    return false;
-  }
-  return true;
-}
+IVitalCheck* vitalCheckers[] = {
+  [bpm] = new VitalRangeCheck(70, 150),
+  [spo2] = new VitalRangeCheck(80, 100),
+  [respRate] = new VitalRangeCheck(30, 60),
+  [avgECG] = new VitalValueCheck(0),
+};
 
-bool vital_resp( float respRate ){
-  if( ( respRate<30 ) || (respRate >60) ){
-    return false;
+std::vector<bool> vitalsAreOk(const std::vector<Measurement>& measurements) {
+  std::vector<bool> results;
+  for(auto t = measurements.begin(); t != measurements.end(); t++) {
+    bool vitalResult = vitalCheckers[t->id]->measurementIsOk(t->measured_value);
+    std::cout << "Vital-check result is " << vitalResult << std::endl;
   }
-  return true;
-}
-
-bool vitalsAreOk(float bpm, float spo2, float respRate) {
-  bool bpm_ok, spo2_ok, respRate_ok;
-  bpm_ok = vital_bpm(bpm);
-  spo2_ok = vital_spo2(spo2);
-  respRate_ok = vital_resp(respRate);
-  return bpm_ok && spo2_ok && respRate_ok;
+  return results;
 }
