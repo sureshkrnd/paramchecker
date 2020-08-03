@@ -30,7 +30,7 @@ inventory get_vehicle_measurements( telematics input )
   {
     data.battery_pc = input.measurement;
   }
-  else( input.type == measure::battery_temp )
+  else if( input.type == measure::battery_temp )
   {
     data.battery_temp = input.measurement;
   }
