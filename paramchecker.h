@@ -64,7 +64,7 @@ struct inventory{
 	float motor_temp;
 	float battery_pc;
 	float battery_temp;
-}
+};
 
 inventory get_vehicle_measurements( telematics input );
 
