@@ -18,21 +18,21 @@
 //   return results;
 // }
 
-inventory get_vehicle_measurements( struct telematics input )
+inventory get_vehicle_measurements( telematics input )
 {
   inventory data;
   data.vehicle_id = input.vehicle_id;
   if( input.type == measure::motor_temp )
   {
-    data.motor_temp = imput.measurement;
+    data.motor_temp = input.measurement;
   }
   else if( input.type == measure::battery_pc )
   {
-    data.battery_pc = imput.measurement;
+    data.battery_pc = input.measurement;
   }
   else( input.type == measure::battery_temp )
   {
-    data.battery_temp = imput.measurement;
+    data.battery_temp = input.measurement;
   }
   return data;
 }
