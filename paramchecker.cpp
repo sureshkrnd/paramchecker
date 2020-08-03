@@ -18,7 +18,7 @@
 //   return results;
 // }
 
-inventory get_vehicle_measurements( telematics input )
+inventory get_vehicle_measurements( struct telematics input )
 {
   inventory data;
   data.vehicle_id = input.vehicle_id;
