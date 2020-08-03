@@ -22,9 +22,9 @@
 TEST(Vehicle_data, get_vehicle_data) {
     telematics input_data = { 300, measure::motor_temp, 35 };
     inventory vehicle_data = get_vehicle_measurements(input_data);
-    EXPECT_EQ(300, vehicle_data.vehicle_id);
-//     EXPECT_EQ();
-//     EXPECT_EQ(vitalChecker.measurementIsOk(70), true);
+    EXPECT_EQ( 300, vehicle_data.vehicle_id );
+    EXPECT_EQ( measure::motor_temp, vehicle_data.type );
+    EXPECT_EQ( 35, vehicle_data.measurement );
 }
  
 int main(int argc, char **argv) {
