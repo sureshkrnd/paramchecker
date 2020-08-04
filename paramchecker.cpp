@@ -22,17 +22,20 @@ inventory get_vehicle_measurements( telematics input )
 {
   inventory data;
   data.vehicle_id = input.vehicle_id;
-  if( input.type == measure::motor_temp )
+  switch( input.type )
   {
-    data.motor_temp = input.measurement;
-  }
-  else if( input.type == measure::battery_pc )
-  {
-    data.battery_pc = input.measurement;
-  }
-  else if( input.type == measure::battery_temp )
-  {
-    data.battery_temp = input.measurement;
+    case motor_temp:{
+      data.motor_temp = input.measurement;
+      break;
+    }
+    case battery_pc:{
+      data.battery_pc = input.measurement;
+      break;
+    }
+    case battery_temp:{
+      data.battery_temp = input.measurement;
+      break;
+    }
   }
   return data;
 }
