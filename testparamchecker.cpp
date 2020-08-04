@@ -32,6 +32,13 @@ TEST(Vehicle_data_battery_temp, get_vehicle_data_battery_temp) {
     ASSERT_EQ( 500, vehicle_data.vehicle_id );
     ASSERT_NEAR( 45, vehicle_data.battery_temp, 0.001 );
 }
+
+TEST(Vehicle_data_battery_pc, get_vehicle_data_battery_pc) {
+    telematics input_data = { 700, measure::battery_pc, 55 };
+    inventory vehicle_data = get_vehicle_measurements(input_data);
+    ASSERT_EQ( 700, vehicle_data.vehicle_id );
+    ASSERT_NEAR( 55, vehicle_data.battery_pc, 0.001 );
+}
  
 int main(int argc, char **argv) {
     testing::InitGoogleTest(&argc, argv);
