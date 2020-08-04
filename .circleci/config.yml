@@ -21,6 +21,11 @@ jobs:
             make
             cp -a include/gtest /usr/include  
             cp *.a /usr/lib
+            
+      - run:
+          name: Install GCov
+          command: |
+            apt-get update && apt-get install -y gcovr
       - run:
           name: Install cppcheck
           command: 'apt-get update && apt-get install -y cppcheck'
