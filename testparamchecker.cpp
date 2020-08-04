@@ -22,8 +22,15 @@
 TEST(Vehicle_data, get_vehicle_data) {
     telematics input_data = { 300, measure::motor_temp, 35 };
     inventory vehicle_data = get_vehicle_measurements(input_data);
-    EXPECT_EQ( 300, vehicle_data.vehicle_id );
-    EXPECT_EQ( 35, vehicle_data.motor_temp );
+    ASSERT_NEAR( 300, vehicle_data.vehicle_id, 0.001 );
+    ASSERT_NEAR( 35, vehicle_data.motor_temp, 0.001 );
+}
+
+TEST(Vehicle_data, get_vehicle_data) {
+    telematics input_data = { 500, measure::battery_temp, 45 };
+    inventory vehicle_data = get_vehicle_measurements(input_data);
+    ASSERT_NEAR( 300, vehicle_data.vehicle_id, 0.001 );
+    ASSERT_NEAR( 35, vehicle_data.battery_temp, 0.001 );
 }
  
 int main(int argc, char **argv) {
