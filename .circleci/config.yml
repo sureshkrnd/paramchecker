@@ -47,4 +47,7 @@ jobs:
       - run:
           name: Unit test
           command: './testchecker'
+      - run:
+          name: Report coverage
+          command: 'gcovr -r .'
 
