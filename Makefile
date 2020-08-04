@@ -1,2 +1,4 @@
+#all:
+	#g++ -Wall -Wextra -o testchecker *.cpp -lgtest -lpthread 
 all:
-	g++ -Wall -Wextra -o testchecker *.cpp -lgtest -lpthread 
+	g++ -Wall -Wextra -o testchecker *.cpp -lgtest -lpthread -fprofile-arcs -ftest-coverage -fPIC -O0
