@@ -22,14 +22,14 @@
 TEST(Vehicle_data_motor_temp, get_vehicle_data_motor_temp) {
     telematics input_data = { 300, measure::motor_temp, 35 };
     inventory vehicle_data = get_vehicle_measurements(input_data);
-    ASSERT( 300, vehicle_data.vehicle_id );
+    ASSERT_EQ( 300, vehicle_data.vehicle_id );
     ASSERT_NEAR( 35, vehicle_data.motor_temp, 0.001 );
 }
 
 TEST(Vehicle_data_battery_temp, get_vehicle_data_battery_temp) {
     telematics input_data = { 500, measure::battery_temp, 45 };
     inventory vehicle_data = get_vehicle_measurements(input_data);
-    ASSERT( 500, vehicle_data.vehicle_id );
+    ASSERT_EQ( 500, vehicle_data.vehicle_id );
     ASSERT_NEAR( 45, vehicle_data.battery_temp, 0.001 );
 }
  
