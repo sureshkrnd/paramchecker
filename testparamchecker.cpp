@@ -29,8 +29,8 @@ TEST(Vehicle_data_motor_temp, get_vehicle_data_motor_temp) {
 TEST(Vehicle_data_battery_temp, get_vehicle_data_battery_temp) {
     telematics input_data = { 500, measure::battery_temp, 45 };
     inventory vehicle_data = get_vehicle_measurements(input_data);
-    ASSERT( 300, vehicle_data.vehicle_id );
-    ASSERT_NEAR( 35, vehicle_data.battery_temp, 0.001 );
+    ASSERT( 500, vehicle_data.vehicle_id );
+    ASSERT_NEAR( 45, vehicle_data.battery_temp, 0.001 );
 }
  
 int main(int argc, char **argv) {
