@@ -19,14 +19,14 @@
 //     ASSERT_EQ(results[respRate], true);
 // }
 
-TEST(Vehicle_data, get_vehicle_data) {
+TEST(Vehicle_data_motor_temp, get_vehicle_data_motor_temp) {
     telematics input_data = { 300, measure::motor_temp, 35 };
     inventory vehicle_data = get_vehicle_measurements(input_data);
     ASSERT_NEAR( 300, vehicle_data.vehicle_id, 0.001 );
     ASSERT_NEAR( 35, vehicle_data.motor_temp, 0.001 );
 }
 
-TEST(Vehicle_data, get_vehicle_data) {
+TEST(Vehicle_data_battery_temp, get_vehicle_data_battery_temp) {
     telematics input_data = { 500, measure::battery_temp, 45 };
     inventory vehicle_data = get_vehicle_measurements(input_data);
     ASSERT_NEAR( 300, vehicle_data.vehicle_id, 0.001 );
